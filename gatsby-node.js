@@ -1,12 +1,11 @@
-import * as path from "path";
+const path = require("path");
 
-export async function createPages({ actions, graphql }) {
+async function createPages({ actions, graphql }) {
   const { createPage } = actions;
   await createDocumentPages(createPage, graphql);
   await createIntegrationPages(createPage, graphql);
 }
 
-// Create the pages for /help, /legal, /guides
 async function createDocumentPages(createPage, graphql) {
   const template = path.resolve(`src/templates/document.tsx`);
   const documents = await graphql(`
@@ -31,14 +30,6 @@ async function createDocumentPages(createPage, graphql) {
     throw new Error(documents.errors);
   }
 
-  // Build a mapping of breadcrumbs (paths) to titles:
-  //
-  //     {
-  //       "help/billing-and-payments": "Billing and payments",
-  //       "help/billing-and-payments/billing": "Add or update your billing details",
-  //       "help/billing-and-payments/cancel": "Cancel your subscription"
-  //     }
-  //
   const relPathDirInfo = {};
   for (const { node } of documents.data.allMarkdownRemark.edges) {
     const relPath = path.relative("src/pages", node.fileAbsolutePath);
@@ -59,8 +50,6 @@ async function createDocumentPages(createPage, graphql) {
       relPath = path.dirname(relPath);
     }
 
-    // Skip the last component of the breadcrumb, as this is the page itself and
-    // would be shown in a page title instead of breadcrumb.
     result.pop();
 
     return result;
@@ -81,7 +70,6 @@ async function createDocumentPages(createPage, graphql) {
   });
 }
 
-// Create the pages for /integrations
 async function createIntegrationPages(createPage, graphql) {
   const template = path.resolve(`src/templates/integration.tsx`);
   const integrations = await graphql(`
@@ -110,7 +98,7 @@ async function createIntegrationPages(createPage, graphql) {
   });
 }
 
-export function onCreateWebpackConfig({ actions, stage }) {
+function onCreateWebpackConfig({ actions, stage }) {
   actions.setWebpackConfig({
     resolve: {
       alias: {
@@ -119,3 +107,8 @@ export function onCreateWebpackConfig({ actions, stage }) {
     }
   });
 }
+
+module.exports = {
+  createPages,
+  onCreateWebpackConfig
+};

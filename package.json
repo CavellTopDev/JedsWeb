@@ -14,6 +14,8 @@
     "Benjamin Humphrey <benjamin@dovetailapp.com>",
     "Bradley Ayers <brad@dovetailapp.com>"
   ],
+  "type": "commonjs",
+
   "scripts": {
     "build": "ts-node ./node_modules/.bin/gatsby build",
     "precommit": "lint-staged",
@@ -26,6 +28,7 @@
     "jest": "./node_modules/.bin/jest",
     "postmerge": "./bin/post-merge-update-dependencies",
     "serve": "./node_modules/.bin/gatsby serve",
+    "sharp": "sharp",
     "start": "ts-node ./node_modules/.bin/gatsby develop -H 0.0.0.0",
     "storybook": "ts-node ./node_modules/.bin/start-storybook -p 9003 -c .storybook",
     "test": "./node_modules/.bin/tsc --noEmit && ./node_modules/.bin/tslint -p tsconfig.json && ./node_modules/.bin/jest --runInBand && ts-node ./node_modules/.bin/start-storybook -p 9003 -c .storybook --smoke-test"
@@ -115,6 +118,7 @@
     "react-resize-detector": "^1.1.0",
     "react-test-renderer": "^16.3.1",
     "react-transition-group": "^2.3.1",
+    "sharp": "^0.33.2",
     "storybook-router": "^0.3.4",
     "ts-jest": "^22.4.2",
     "ts-node": "^5.0.1",
