@@ -132,7 +132,6 @@
   "resolutions": {
     "upath": "1.0.5"
   },
-  
   "lint-staged": {
     "linters": {
       "*.tsx": [
