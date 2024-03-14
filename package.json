@@ -134,7 +134,7 @@
     "upath": "1.0.5"
   },
   "engines": {
-    "node": "21.7.1",
+    "node": "18.5.0",
     "yarn": "1.7.0"
   },
   "lint-staged": {
