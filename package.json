@@ -15,7 +15,6 @@
     "Bradley Ayers <brad@dovetailapp.com>"
   ],
   "type": "commonjs",
-
   "scripts": {
     "build": "ts-node ./node_modules/.bin/gatsby build",
     "precommit": "lint-staged",
