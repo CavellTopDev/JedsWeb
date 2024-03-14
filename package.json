@@ -132,6 +132,11 @@
   "resolutions": {
     "upath": "1.0.5"
   },
+  "engines": {
+    "node": "18.5.0",
+    "yarn": "1.7.0"
+  },
+  
   "lint-staged": {
     "linters": {
       "*.tsx": [
