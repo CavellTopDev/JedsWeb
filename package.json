@@ -136,7 +136,6 @@
     "node": "18.5.0",
     "yarn": "1.7.0"
   },
-  
   "lint-staged": {
     "linters": {
       "*.tsx": [
